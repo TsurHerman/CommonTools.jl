@@ -1,1 +1,17 @@
 julia 0.6
+GLVisualize
+ArgParse
+Rotations
+NearestNeighbors
+Parameters
+Reactive
+NamedTuples
+Images
+BenchmarkTools
+MeshIO
+FileIO
+DataStructures
+ColorTypes
+Optim
+GeometryTypes
+PyPlot

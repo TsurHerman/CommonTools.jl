@@ -1,6 +1,5 @@
 module CommonTools
 
-import GLVisualize
 import ArgParse
 import GLVisualize
 import Rotations
@@ -17,6 +16,7 @@ import ColorTypes
 import Optim
 import GeometryTypes
 import PyPlot
+import LsqFit
 
 
 # !isdefined(:my_full_name) && (my_full_name = @__FILE__)

@@ -26,7 +26,7 @@ ini_1 = string(@__DIR__ ,"/HMD.ini")
 CommonTools.parseini(ini_1)
 
 _view(visualize(ply),window)
-@async GLWindow.waiting_renderloop(window)
+@async GLWindow.renderloop(window)
 sleep(10)
 addprocs(1)
 @spawn rand(100,100)

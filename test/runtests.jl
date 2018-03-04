@@ -1,11 +1,16 @@
+println("Workout")
+
+for pk in keys(Pkg.installed())
+       eval(parse("import $pk"))
+end
 import CommonTools
 using CommonTools: parseini,cached_load
 using Base.Test
 using PyPlot
-imshow(rand(100,100))
+import Reactive
+# imshow(rand(100,100))
 # write your own tests here
 # @test 1 == 1
-println("Workout")
 using StaticArrays
 using GLVisualize
 using Rotations,Parameters
@@ -26,17 +31,26 @@ ini_1 = string(@__DIR__ ,"/HMD.ini")
 CommonTools.parseini(ini_1)
 
 _view(visualize(ply),window)
-@async GLWindow.renderloop(window)
-sleep(10)
-addprocs(1)
-@spawn rand(100,100)
-GLWindow.destroy!(window)
+# GLVisualize.renderloop(window)
+# @async GLWindow.renderloop(window)
+# sleep(10)
+# addprocs(1)
+# @spawn rand(100,100)
+println("Workout")
+
+for i=1:10
+            GLVisualize.render_frame(window)
+            GLVisualize.swapbuffers(window)
+            GLVisualize.poll_glfw()
+            yield()
+end
+GLVisualize.destroy!(window)
 ply = nothing
 
-rmprocs(2)
 println(nworkers())
 
 import LsqFit
+println("Workout")
 
 # a two-parameter exponential model
 # x: array of independent variables

@@ -1,7 +1,7 @@
 println("Workout")
 
 for pk in keys(Pkg.installed())
-       eval(parse("import $pk"))
+       (pk != "PackageCompiler") && (eval(parse("import $pk")))
 end
 import CommonTools
 using CommonTools: parseini,cached_load
